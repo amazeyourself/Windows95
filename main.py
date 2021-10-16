@@ -7,12 +7,13 @@ class Game:
         self.screen = screen
         self.running = True
         self.clock = pygame.time.Clock()
-        self.workspace = Icon("computer_explorer_cool-0",25, 25)
-        self.network = Icon("network_normal_two_pcs-5", 25, 125)
-        self.mailing = Icon('mailbox_world-2', 25, 225)
-        self.bin = Icon('recycle_bin_empty_cool-0', 25, 325)
-        self.msn = Icon('msn_cool-4', 25, 425)
-        self.explorer = Icon('briefcase-2', 25, 525)
+        self.workspace = Icon("computer_explorer_cool-0", "Poste de travail", 35, 25)
+        self.network = Icon("network_normal_two_pcs-5", "Voisinage réseau", 35, 90)
+        self.mailing = Icon('mailbox_world-2', "Boîte de réception", 35, 155)
+        self.bin = Icon('recycle_bin_empty_cool-0', "Corbeille", 35, 220)
+        self.msn = Icon('msn_cool-4', "Internet", 35, 285)
+        self.explorer = Icon('briefcase-2', "Porte-documents", 35, 345)
+        print(self.workspace.rect.height)
 
     def handling_events(self):
         for event in pygame.event.get():
