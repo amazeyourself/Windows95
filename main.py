@@ -1,5 +1,6 @@
 import pygame
 from icons import Icon
+from taskbar import Taskbar, Hour
 
 
 class Game:
@@ -11,9 +12,10 @@ class Game:
         self.network = Icon("network_normal_two_pcs-5", "Voisinage réseau", 35, 90)
         self.mailing = Icon('mailbox_world-2', "Boîte de réception", 35, 155)
         self.bin = Icon('recycle_bin_empty_cool-0', "Corbeille", 35, 220)
-        self.msn = Icon('msn_cool-4', "Internet", 35, 285)
-        self.explorer = Icon('briefcase-2', "Porte-documents", 35, 345)
-        print(self.workspace.rect.height)
+        self.msn = Icon('internet_connection_wiz-4', "The Internet", 35, 285)
+        self.explorer = Icon('briefcase-4', "Porte-documents", 35, 345)
+        self.taskbar = Taskbar(0, 720-42)
+        self.hour = Hour(882, 693)
 
     def handling_events(self):
         for event in pygame.event.get():
@@ -31,6 +33,8 @@ class Game:
         self.bin.draw(self.screen)
         self.msn.draw(self.screen)
         self.explorer.draw(self.screen)
+        self.taskbar.draw(self.screen)
+        self.hour.draw(self.screen)
         pygame.display.flip()
 
     def run(self):

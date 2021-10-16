@@ -2,7 +2,6 @@ import pygame
 
 
 class Icon:
-
     def __init__(self, name, string, x, y):
         self.image = pygame.image.load("assets/icons/{}.png".format(name))
         self.image = pygame.transform.scale(self.image, (32, 32))
