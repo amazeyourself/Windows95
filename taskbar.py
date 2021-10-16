@@ -34,3 +34,13 @@ class Start:
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
+
+
+class Menu:
+    def __init__(self, x, y):
+        self.image = pygame.image.load("assets/menu.png")
+        self.image = pygame.transform.scale(self.image, (275.52, 441.84))
+        self.rect = self.image.get_rect(x=x, y=y)
+
+    def draw(self, screen):
+        screen.blit(self.image, self.rect)

@@ -1,6 +1,6 @@
 import pygame
 from icons import Icon
-from taskbar import Taskbar, Hour, Start
+from taskbar import Taskbar, Hour, Start, Menu
 
 
 class Game:
@@ -17,11 +17,17 @@ class Game:
         self.taskbar = Taskbar(0, 720-42)
         self.hour = Hour(882, 693)
         self.start = Start(0, 720-41)
+        self.menu = Menu(2, 720-441.84)
+        self.show_menu = 1
 
     def handling_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                x, y = event.pos
+                if self.start.rect.collidepoint(x, y):
+                    self.show_menu += 1
 
     def update(self):
         pass
@@ -37,6 +43,8 @@ class Game:
         self.taskbar.draw(self.screen)
         self.hour.draw(self.screen)
         self.start.draw(self.screen)
+        if self.show_menu % 2 == 0:
+            self.menu.draw(self.screen)
         pygame.display.flip()
 
     def run(self):
