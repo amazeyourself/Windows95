@@ -1,6 +1,6 @@
 import pygame
 from icons import Icon
-from taskbar import Taskbar, Hour
+from taskbar import Taskbar, Hour, Start
 
 
 class Game:
@@ -16,6 +16,7 @@ class Game:
         self.explorer = Icon('briefcase-4', "Porte-documents", 35, 345)
         self.taskbar = Taskbar(0, 720-42)
         self.hour = Hour(882, 693)
+        self.start = Start(0, 720-41)
 
     def handling_events(self):
         for event in pygame.event.get():
@@ -35,6 +36,7 @@ class Game:
         self.explorer.draw(self.screen)
         self.taskbar.draw(self.screen)
         self.hour.draw(self.screen)
+        self.start.draw(self.screen)
         pygame.display.flip()
 
     def run(self):
