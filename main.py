@@ -19,6 +19,7 @@ class Game:
         self.start = Start(0, 720-41)
         self.menu = Menu(2, 720-441.84)
         self.show_menu = 1
+        self.show_workspace = 1
 
     def handling_events(self):
         for event in pygame.event.get():
@@ -28,6 +29,11 @@ class Game:
                 x, y = event.pos
                 if self.start.rect.collidepoint(x, y):
                     self.show_menu += 1
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                x, y = event.pos
+                if self.workspace.rect.collidepoint(x, y):
+                    self.show_workspace += 1
 
     def update(self):
         pass
@@ -45,6 +51,8 @@ class Game:
         self.start.draw(self.screen)
         if self.show_menu % 2 == 0:
             self.menu.draw(self.screen)
+        # if self.show_workspace % 2 == 0:
+            # self.workspace.draw(self.screen)
         pygame.display.flip()
 
     def run(self):
