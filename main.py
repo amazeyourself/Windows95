@@ -6,7 +6,7 @@ from window import Workspace
 FPS = 60
 WIDTH = 960
 HEIGHT = 720
-TITLE = 'Windows95 - CallMeKitsu.'
+TITLE = 'Windows95 - amazeyourself'
 ICON = pygame.image.load('assets/app_icon.png')
 
 
@@ -18,12 +18,12 @@ class Game:
         self.clock = pygame.time.Clock()
 
         # ==={ icônes du bureau }==================================================================================
-        self.workspace = Icon("computer_explorer_cool-0", "Poste de travail", 35, 25)
-        self.network = Icon("network_normal_two_pcs-5", "Voisinage réseau", 35, 90)
-        self.mailing = Icon('mailbox_world-2', "Boîte de réception", 35, 155)
-        self.bin = Icon('recycle_bin_empty_cool-0', "Corbeille", 35, 220)
+        self.workspace = Icon("computer_explorer_cool-0", "My Computer", 35, 25)
+        self.network = Icon("network_normal_two_pcs-5", "Network Neighborwood", 35, 90)
+        self.mailing = Icon('mailbox_world-2', "Inbox", 35, 155)
+        self.bin = Icon('recycle_bin_empty_cool-0', "Recycle Bin", 35, 220)
         self.msn = Icon('internet_connection_wiz-4', "The Internet", 35, 285)
-        self.explorer = Icon('briefcase-4', "Porte-documents", 35, 345)
+        self.explorer = Icon('briefcase-4', "My Briefcase", 35, 345)
 
         # ==={ barre des tâches }==================================================================================
         self.taskbar = Taskbar(0, 720 - 42)
@@ -60,7 +60,7 @@ class Game:
     def display(self):
         self.screen.fill('#018382')
 
-        # ==={ icônes du bureau }==================================================================================
+        # ==={ desktop icons }==================================================================================
         self.workspace.draw(self.screen)
         self.network.draw(self.screen)
         self.mailing.draw(self.screen)
@@ -68,14 +68,14 @@ class Game:
         self.msn.draw(self.screen)
         self.explorer.draw(self.screen)
 
-        # ==={ barre des tâches }==================================================================================
+        # ==={ taskbar }==================================================================================
         self.taskbar.draw(self.screen)
         self.hour.draw(self.screen)
         self.start.draw(self.screen)
         if self.show_menu % 2 == 0:
             self.menu.draw(self.screen)
 
-        # ==={ poste de travail }==================================================================================
+        # ==={ desktop }==================================================================================
         if self.show_workspace % 2 == 0:
             self.window_workspace.draw(self.screen)
         pygame.display.flip()
